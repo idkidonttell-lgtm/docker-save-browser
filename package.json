@@ -1,0 +1,17 @@
+{
+  "name": "docker-save-browser",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --port 4321",
+    "build": "vite build",
+    "preview": "vite preview --port 4321",
+    "proxy:dev": "wrangler dev ./proxy/cloudflare-worker/index.js --config ./proxy/cloudflare-worker/wrangler.jsonc",
+    "proxy:deploy": "wrangler deploy --config ./proxy/cloudflare-worker/wrangler.jsonc"
+  },
+  "devDependencies": {
+    "vite": "^6.3.5",
+    "wrangler": "^4.9.0"
+  }
+}

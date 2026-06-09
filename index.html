@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Docker Save Browser</title>
+    <meta
+      name="description"
+      content="Download a public Docker or OCI image as a docker save tar directly in the browser."
+    />
+    <link rel="stylesheet" href="/src/styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="app-header">
+        <div class="app-title">
+          <h1>Docker Save Browser</h1>
+        </div>
+        <p class="lead">
+          Download a Docker or OCI image as a <code>docker save</code> tar directly in the browser.
+        </p>
+        <div class="app-links">
+          <a href="https://www.repoflow.io/tools/docker-save" target="_blank" rel="noopener noreferrer">RepoFlow hosted tool</a>
+          <a href="https://github.com/RepoFlow-Package-Management/docker-save-browser/tree/main/proxy/cloudflare-worker" target="_blank" rel="noopener noreferrer">
+            <span aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 .5C5.649.5.5 5.649.5 12c0 5.084 3.292 9.396 7.862 10.918.575.106.785-.25.785-.556 0-.274-.01-1-.016-1.962-3.198.695-3.873-1.541-3.873-1.541-.523-1.328-1.277-1.682-1.277-1.682-1.044-.714.079-.699.079-.699 1.155.081 1.763 1.186 1.763 1.186 1.026 1.758 2.691 1.251 3.347.957.104-.743.402-1.251.731-1.539-2.553-.291-5.238-1.276-5.238-5.682 0-1.255.449-2.281 1.184-3.085-.119-.291-.513-1.462.112-3.048 0 0 .966-.309 3.166 1.179a10.98 10.98 0 0 1 5.764 0c2.198-1.488 3.163-1.179 3.163-1.179.627 1.586.233 2.757.114 3.048.737.804 1.183 1.83 1.183 3.085 0 4.417-2.689 5.388-5.251 5.674.414.357.782 1.061.782 2.139 0 1.545-.014 2.792-.014 3.171 0 .309.207.668.791.555C20.211 21.392 23.5 17.083 23.5 12 23.5 5.649 18.351.5 12 .5Z"/>
+              </svg>
+            </span>
+            <span>Cloudflare Worker proxy</span>
+          </a>
+        </div>
+      </header>
+
+      <section class="workspace" data-control-panel>
+        <div class="workspace__intro" data-panel-head>
+          <div>
+            <h2>Export an image</h2>
+            <p class="section-copy">Public images work out of the box. Add credentials for private registries, and add your own proxy if browser access is blocked.</p>
+          </div>
+          <div class="panel__actions" data-panel-tools>
+            <button type="button" class="icon-button" data-debug-toggle aria-expanded="false" aria-label="Open debug panel" title="Debug">
+              <span aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12.4999 5.83203L16.6666 9.9987L12.4999 14.1654M7.49992 14.1654L3.33325 9.9987L7.49992 5.83203" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </span>
+            </button>
+            <button type="button" class="icon-button" data-settings-toggle aria-expanded="false" aria-label="Open settings panel" title="Settings">
+              <span aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M8.60417 3.5975C8.95917 2.13417 11.0408 2.13417 11.3958 3.5975C11.4491 3.81733 11.5535 4.02148 11.7006 4.19333C11.8477 4.36518 12.0332 4.49988 12.2422 4.58645C12.4512 4.67303 12.6776 4.70904 12.9032 4.69156C13.1287 4.67407 13.3469 4.60359 13.54 4.48583C14.8258 3.7025 16.2983 5.17417 15.515 6.46083C15.3974 6.65388 15.327 6.87195 15.3096 7.09731C15.2922 7.32267 15.3281 7.54897 15.4146 7.75782C15.5011 7.96666 15.6356 8.15215 15.8073 8.29921C15.9789 8.44627 16.1829 8.55075 16.4025 8.60417C17.8658 8.95917 17.8658 11.0408 16.4025 11.3958C16.1827 11.4491 15.9785 11.5535 15.8067 11.7006C15.6348 11.8477 15.5001 12.0332 15.4135 12.2422C15.327 12.4512 15.291 12.6776 15.3084 12.9032C15.3259 13.1287 15.3964 13.3469 15.5142 13.54C16.2975 14.8258 14.8258 16.2983 13.5392 15.515C13.3461 15.3974 13.1281 15.327 12.9027 15.3096C12.6773 15.2922 12.451 15.3281 12.2422 15.4146C12.0333 15.5011 11.8479 15.6356 11.7008 15.8073C11.5537 15.9789 11.4492 16.1829 11.3958 16.4025C11.0408 17.8658 8.95917 17.8658 8.60417 16.4025C8.5509 16.1827 8.44648 15.9785 8.29941 15.8067C8.15233 15.6348 7.96676 15.5001 7.75779 15.4135C7.54882 15.327 7.32236 15.291 7.09685 15.3084C6.87133 15.3259 6.65313 15.3964 6.46 15.5142C5.17417 16.2975 3.70167 14.8258 4.485 13.5392C4.60258 13.3461 4.67296 13.1281 4.6904 12.9027C4.70785 12.6773 4.67187 12.451 4.58539 12.2422C4.49892 12.0333 4.36438 11.8479 4.19273 11.7008C4.02107 11.5537 3.81714 11.4492 3.5975 11.3958C2.13417 11.0408 2.13417 8.95917 3.5975 8.60417C3.81733 8.5509 4.02148 8.44648 4.19333 8.29941C4.36518 8.15233 4.49988 7.96676 4.58645 7.75779C4.67303 7.54882 4.70904 7.32236 4.69156 7.09685C4.67407 6.87133 4.60359 6.65313 4.48583 6.46C3.7025 5.17417 5.17417 3.70167 6.46083 4.485C7.29417 4.99167 8.37417 4.54333 8.60417 3.5975Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M7.5 10C7.5 10.663 7.76339 11.2989 8.23223 11.7678C8.70107 12.2366 9.33696 12.5 10 12.5C10.663 12.5 11.2989 12.2366 11.7678 11.7678C12.2366 11.2989 12.5 10.663 12.5 10C12.5 9.33696 12.2366 8.70107 11.7678 8.23223C11.2989 7.76339 10.663 7.5 10 7.5C9.33696 7.5 8.70107 7.76339 8.23223 8.23223C7.76339 8.70107 7.5 9.33696 7.5 10Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </span>
+            </button>
+          </div>
+
+          <div class="flyouts">
+            <section class="flyout" data-debug-panel hidden>
+              <h2>Debug events</h2>
+              <p data-log-empty>No worker events yet.</p>
+              <ul data-log-list></ul>
+            </section>
+
+            <section class="flyout" data-settings-panel hidden>
+              <label class="field">
+                <span>Custom proxy URL</span>
+                <input
+                  type="url"
+                  name="proxyBaseUrl"
+                  placeholder="https://your-worker.workers.dev"
+                />
+              </label>
+              <p class="field-note">No default proxy is configured in this repo.</p>
+              <div class="inline-row">
+                <p>Current cache size <strong data-cache-size>0 B</strong></p>
+                <button type="button" data-command="clear">
+                  <span data-clear-label>Clear cache</span>
+                  <span data-clear-loader hidden>Clearing…</span>
+                </button>
+              </div>
+            </section>
+          </div>
+        </div>
+        <span data-check-icon-template hidden>✓</span>
+
+        <div class="support" data-support-panel hidden>
+          <h2 data-support-status>Blocked</h2>
+          <p data-support-hint>This browser is missing APIs required by the exporter.</p>
+          <details data-support-details hidden>
+            <summary>Technical details</summary>
+            <ul data-support-list></ul>
+          </details>
+        </div>
+
+        <div class="stage" data-form-stage>
+          <form data-oci-form>
+            <div data-input-section>
+            <div class="primary-row">
+              <label class="field field--grow">
+                <span>Image URL</span>
+                <div class="input-with-button">
+                  <input type="text" name="imageUrl" spellcheck="false" autocomplete="off" placeholder="alpine:latest" />
+                  <button type="button" data-credentials-toggle aria-expanded="false">Credentials</button>
+                </div>
+
+                <section class="flyout" data-credentials-panel hidden>
+                  <p>Private registries only.</p>
+                  <label class="field">
+                    <span>Username</span>
+                    <input type="text" name="registryUsername" autocomplete="username" />
+                  </label>
+                  <label class="field">
+                    <span>Password</span>
+                    <input type="password" name="registryPassword" autocomplete="current-password" />
+                  </label>
+                </section>
+              </label>
+
+              <label class="field field--arch">
+                <span>Architecture</span>
+                <div class="select-shell" data-general-select>
+                  <button type="button" class="select-trigger" data-general-select-trigger aria-expanded="false">
+                    <span data-general-select-value>Choose architecture</span>
+                  </button>
+                  <div class="select-menu" data-general-select-menu hidden></div>
+                  <select data-general-select-native hidden></select>
+                </div>
+              </label>
+
+              <div class="field field--submit">
+                <span>Export</span>
+                <div class="actions">
+                  <button type="button" data-command="export">
+                    <span data-export-label>Download image</span>
+                    <span data-export-loader hidden>
+                      <span data-export-loader-value>0%</span>
+                    </span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="notes">
+              <p data-platform-note hidden></p>
+              <p data-image-note hidden></p>
+            </div>
+
+            <div class="context-note-row">
+              <div class="context-note" data-context-note hidden>
+                <span class="context-note__label" data-context-note-title></span>
+                <button type="button" class="context-note__trigger" data-context-note-trigger aria-label="Why this note is shown" hidden>i</button>
+                <div class="context-note__tooltip" data-context-note-tooltip hidden>
+                  <p data-context-note-body></p>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+
+      </section>
+
+    </main>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

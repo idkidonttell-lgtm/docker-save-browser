@@ -1,0 +1,12 @@
+{
+  "name": "docker-save-browser-proxy",
+  "main": "index.js",
+  "compatibility_date": "2026-03-25",
+  "workers_dev": true,
+  "vars": {
+    "ALLOW_ANY_UPSTREAMS": "true",
+    "UPSTREAM_ALLOWLIST": "",
+    "ALLOWED_ORIGINS": "http://localhost:4321,http://127.0.0.1:4321,https://www.repoflow.io,https://repoflow.io",
+    "ALLOW_MISSING_ORIGIN": "false"
+  }
+}
